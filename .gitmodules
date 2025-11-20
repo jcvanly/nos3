@@ -165,5 +165,5 @@
 	branch = nos3-dev
 [submodule "components/scripter"]
 	path = components/scripter
-	url = https://github.com/jcvanly/server.git
+	url = https://github.com/jcvanly/scripter.git
 	branch = main
