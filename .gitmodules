@@ -167,3 +167,7 @@
 	path = components/scripter
 	url = https://github.com/jcvanly/scripter.git
 	branch = main
+[submodule "components/solo"]
+	path = components/solo
+	url = git@github.com:jcvanly/solo.git
+	branch = main
