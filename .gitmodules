@@ -171,3 +171,7 @@
 	path = components/solo
 	url = git@github.com:jcvanly/solo.git
 	branch = main
+[submodule "components/client"]
+	path = components/client
+	url = git@github.com:jcvanly/client.git
+	branch = main
