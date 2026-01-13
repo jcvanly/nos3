@@ -72,6 +72,9 @@
         <thruster>
             <enable>true</enable>
         </thruster>
+        <scripter>
+			<enable>true</enable>
+		</scripter>
     </components>
     <gui>
         <enable>true</enable>

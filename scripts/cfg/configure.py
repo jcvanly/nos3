@@ -133,6 +133,9 @@ else:
         sc_syn_en = sc_root.find('components/syn/enable').text
         sc_torquer_en = sc_root.find('components/torquer/enable').text
         sc_thruster_en = sc_root.find('components/thruster/enable').text
+        sc_scripter_en = sc_root.find('components/scripter/enable').text
+        sc_solo_en = sc_root.find('components/solo/enable').text
+
 
         sc_gui_en = sc_root.find('gui/enable').text
         sc_orbit_tipoff_x = sc_root.find('orbit/tipoff_x').text
@@ -172,6 +175,8 @@ else:
             syn_line = ""
             torquer_line = ""
             thruster_line = ""
+            scripter_line = ""
+            solo_line = ""
             
             # Parse lines
             for line in lines:
@@ -244,6 +249,12 @@ else:
                 if line.find('THRUSTER,') != -1:
                     if (sc_thruster_en == 'true'):
                         thruster_line = line
+                if line.find('SCRIPTER,') != -1:
+                    if (sc_scripter_en == 'true'):
+                        scripter_line = line
+                if line.find('SOLO,') != -1:
+                    if (sc_solo_en == 'true'):
+                        solo_line = line
 
         # Modify startup script per spacecraft configuration
         lines.insert(sc_startup_eof, "\n")
@@ -269,6 +280,8 @@ else:
         lines.insert(sc_startup_eof, fm_line)
         lines.insert(sc_startup_eof, ds_line)
         lines.insert(sc_startup_eof, cf_line)
+        lines.insert(sc_startup_eof, scripter_line)
+        lines.insert(sc_startup_eof, solo_line)
                         
         # Write startup script file
         with open('./cfg/build/nos3_defs/cpu1_cfe_es_startup.scr', 'w') as fp:
@@ -452,6 +465,8 @@ else:
         st_index = 999
         torquer_index = 999
         thruster_index = 999
+        scripter_index = 999
+        solo_index = 999
 
         with open('./cfg/build/sims/nos3-simulator.xml', 'r') as fp:
             lines = fp.readlines()
@@ -503,6 +518,12 @@ else:
                 if line.find('generic-thruster-sim</name>') != -1:
                     if (lines.index(line)) < thruster_index:
                         thruster_index = lines.index(line) + 1
+                if line.find('scripter-sim</name>') != -1:
+                    if (lines.index(line)) < scripter_index:
+                        scripter_index = lines.index(line) + 1
+                if line.find('solo-sim</name>') != -1:
+                    if (lines.index(line)) < solo_index:
+                        solo_index = lines.index(line) + 1
 
         sim_disabled = '            <active>false</active>\n'
         if (sc_cam_en != 'true'):
@@ -533,7 +554,11 @@ else:
             lines[torquer_index] = sim_disabled
         if (sc_thruster_en != 'true'):
             lines[thruster_index] = sim_disabled
-
+        if (sc_scripter_en != 'true'):
+            lines[scripter_index] = sim_disabled
+        if (sc_scripter_en != 'true'):
+            lines[scripter_index] = sim_disabled
+            
         with open('./cfg/build/sims/nos3-simulator.xml', 'w') as fp:
             lines = "".join(lines)
             fp.write(lines)

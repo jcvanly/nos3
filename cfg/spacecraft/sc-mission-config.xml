@@ -72,6 +72,18 @@
 		<thruster>
 			<enable>false</enable>
 		</thruster>
+		<scripter>
+			<enable>true</enable>
+		</scripter>
+		<solo>
+			<enable>true</enable>
+		</solo>
+		<client>
+			<enable>true</enable>
+		</client>
+		<server>
+			<enable>true</enable>
+		</server>
 	</components>
 	<gui>
 		<enable>true</enable>
