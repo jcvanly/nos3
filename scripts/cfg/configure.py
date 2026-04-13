@@ -135,6 +135,8 @@ else:
         sc_thruster_en = sc_root.find('components/thruster/enable').text
         sc_scripter_en = sc_root.find('components/scripter/enable').text
         sc_solo_en = sc_root.find('components/solo/enable').text
+        sc_client_en = sc_root.find('components/client/enable').text
+        sc_server_en = sc_root.find('components/server/enable').text
 
 
         sc_gui_en = sc_root.find('gui/enable').text

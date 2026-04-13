@@ -79,10 +79,10 @@
 			<enable>true</enable>
 		</solo>
 		<client>
-			<enable>true</enable>
+			<enable>false</enable>
 		</client>
 		<server>
-			<enable>true</enable>
+			<enable>false</enable>
 		</server>
 	</components>
 	<gui>

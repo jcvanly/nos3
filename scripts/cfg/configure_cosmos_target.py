@@ -22,6 +22,8 @@ components = {
     "onair": "onair",
     "sample": "sample",
     "scripter": "scripter",
+    "server": "server",
+    "client": "client",
     "solo": "solo",
     "syn": "syn"
 }
