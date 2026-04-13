@@ -57,6 +57,7 @@ extern "C" {
 #include "sc_msgids.h"
 #include "sch_msgids.h"
 #include "to_msgids.h"
+#include "sbn_msgids.h"
 
 /*
 ** Component Include Files
@@ -167,14 +168,14 @@ TO_ConfigTable_t to_ConfigTable =
        //{CFE_SB_MSGID_WRAP_VALUE(GENERIC_ADCS_DO_MID),          {0,0},  32,  0xffff,     TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
        
        /* 50 - 59 */
-       {CFE_SB_MSGID_WRAP_VALUE(SCRIPTER_HK_TLM_MID),            {0,0},  32,  0xffff,     TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
-       {CFE_SB_MSGID_WRAP_VALUE(SCRIPTER_DEVICE_TLM_MID),        {0,0},  32,  0xffff,     TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
-       {CFE_SB_MSGID_WRAP_VALUE(SOLO_HK_TLM_MID),              {0,0},  32,  0xffff,     TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
-       {CFE_SB_MSGID_WRAP_VALUE(SOLO_DEVICE_TLM_MID),          {0,0},  32,  0xffff,     TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
-       {CFE_SB_MSGID_WRAP_VALUE(SERVER_HK_TLM_MID),              {0,0},  32,  0xffff,     TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
-       {CFE_SB_MSGID_WRAP_VALUE(SERVER_DEVICE_TLM_MID),          {0,0},  32,  0xffff,     TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
-       {CFE_SB_MSGID_WRAP_VALUE(CLIENT_HK_TLM_MID),              {0,0},  32,  0xffff,     TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
-       {CFE_SB_MSGID_WRAP_VALUE(CLIENT_DEVICE_TLM_MID),          {0,0},  32,  0xffff,     TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
+       {CFE_SB_MSGID_WRAP_VALUE(SBN_HK_TLM_MID),     {0,0},  32,  0xffff,   TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
+       {CFE_SB_MSGID_WRAP_VALUE(SBN_HKNET_TLM_MID),      {0,0}, 32, 0xffff, TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
+       {CFE_SB_MSGID_WRAP_VALUE(SBN_HKPEER_TLM_MID),     {0,0}, 32, 0xffff, TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
+       {CFE_SB_MSGID_WRAP_VALUE(SBN_HKPEERSUBS_TLM_MID), {0,0}, 32, 0xffff, TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
+       {CFE_SB_MSGID_WRAP_VALUE(SBN_HKMYSUBS_TLM_MID),   {0,0}, 32, 0xffff, TO_GROUP_APP | TO_MGROUP_ONE, 0,1},
+       {CFE_SB_MSGID_WRAP_VALUE(TO_UNUSED_ENTRY),              {0,0},  0,   0x0000,     TO_GROUP_NONE,            0,0},
+       {CFE_SB_MSGID_WRAP_VALUE(TO_UNUSED_ENTRY),              {0,0},  0,   0x0000,     TO_GROUP_NONE,            0,0},
+       {CFE_SB_MSGID_WRAP_VALUE(TO_UNUSED_ENTRY),              {0,0},  0,   0x0000,     TO_GROUP_NONE,            0,0},
        {CFE_SB_MSGID_WRAP_VALUE(TO_UNUSED_ENTRY),              {0,0},  0,   0x0000,     TO_GROUP_NONE,            0,0},
        {CFE_SB_MSGID_WRAP_VALUE(TO_UNUSED_ENTRY),              {0,0},  0,   0x0000,     TO_GROUP_NONE,            0,0},
        
