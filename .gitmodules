@@ -179,3 +179,7 @@
 	path = components/server
 	url = git@github.com:jcvanly/server.git
 	branch = main
+[submodule "components/camera"]
+	path = components/camera
+	url = git@github.com:jcvanly/camera.git
+	branch = main
