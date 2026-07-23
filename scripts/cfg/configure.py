@@ -118,7 +118,6 @@ else:
         sc_sc_en = sc_root.find('applications/sc/enable').text
 
         sc_adcs_en = sc_root.find('components/adcs/enable').text
-        sc_cam_en = sc_root.find('components/cam/enable').text
         sc_css_en = sc_root.find('components/css/enable').text
         sc_eps_en = sc_root.find('components/eps/enable').text
         sc_fss_en = sc_root.find('components/fss/enable').text
@@ -129,15 +128,11 @@ else:
         sc_radio_en = sc_root.find('components/radio/enable').text
         sc_rw_en = sc_root.find('components/rw/enable').text
         sc_sample_en = sc_root.find('components/sample/enable').text
+        sc_arch_en = sc_root.find('components/arch/enable').text
         sc_st_en = sc_root.find('components/st/enable').text
         sc_syn_en = sc_root.find('components/syn/enable').text
         sc_torquer_en = sc_root.find('components/torquer/enable').text
         sc_thruster_en = sc_root.find('components/thruster/enable').text
-        sc_scripter_en = sc_root.find('components/scripter/enable').text
-        sc_solo_en = sc_root.find('components/solo/enable').text
-        sc_client_en = sc_root.find('components/client/enable').text
-        sc_server_en = sc_root.find('components/server/enable').text
-
 
         sc_gui_en = sc_root.find('gui/enable').text
         sc_orbit_tipoff_x = sc_root.find('orbit/tipoff_x').text
@@ -162,7 +157,6 @@ else:
             sbn_line = ""
             sc_line = ""
             adcs_line = ""
-            cam_line = ""
             css_line = ""
             eps_line = ""
             fss_line = ""
@@ -173,12 +167,11 @@ else:
             radio_line = ""
             rw_line = ""
             sample_line = ""
+            arch_line = ""
             st_line = ""
             syn_line = ""
             torquer_line = ""
             thruster_line = ""
-            scripter_line = ""
-            solo_line = ""
             
             # Parse lines
             for line in lines:
@@ -206,9 +199,6 @@ else:
                 if line.find('ADCS,') != -1:
                     if (sc_adcs_en == 'true'):
                         adcs_line = line
-                if line.find('CAM,') != -1:
-                    if (sc_cam_en == 'true'):
-                        cam_line = line
                 if line.find('CSS,') != -1:
                     if (sc_css_en == 'true'):
                         css_line = line
@@ -239,6 +229,9 @@ else:
                 if line.find('SAMPLE,') != -1:
                     if (sc_sample_en == 'true'):
                         sample_line = line
+                if line.find('ARCH,') != -1:
+                    if (sc_arch_en == 'true'):
+                        arch_line = line
                 if line.find('ST,') != -1:
                     if (sc_st_en == 'true'):
                         st_line = line
@@ -251,12 +244,6 @@ else:
                 if line.find('THRUSTER,') != -1:
                     if (sc_thruster_en == 'true'):
                         thruster_line = line
-                if line.find('SCRIPTER,') != -1:
-                    if (sc_scripter_en == 'true'):
-                        scripter_line = line
-                if line.find('SOLO,') != -1:
-                    if (sc_solo_en == 'true'):
-                        solo_line = line
 
         # Modify startup script per spacecraft configuration
         lines.insert(sc_startup_eof, "\n")
@@ -265,6 +252,7 @@ else:
         lines.insert(sc_startup_eof, syn_line)
         lines.insert(sc_startup_eof, st_line)
         lines.insert(sc_startup_eof, sample_line)
+        lines.insert(sc_startup_eof, arch_line)
         lines.insert(sc_startup_eof, rw_line)
         lines.insert(sc_startup_eof, radio_line)
         lines.insert(sc_startup_eof, mag_line)
@@ -274,7 +262,6 @@ else:
         lines.insert(sc_startup_eof, fss_line)
         lines.insert(sc_startup_eof, eps_line)
         lines.insert(sc_startup_eof, css_line)
-        lines.insert(sc_startup_eof, cam_line)
         lines.insert(sc_startup_eof, adcs_line)
         lines.insert(sc_startup_eof, sc_line)
         lines.insert(sc_startup_eof, sbn_line)
@@ -282,9 +269,7 @@ else:
         lines.insert(sc_startup_eof, fm_line)
         lines.insert(sc_startup_eof, ds_line)
         lines.insert(sc_startup_eof, cf_line)
-        lines.insert(sc_startup_eof, scripter_line)
-        lines.insert(sc_startup_eof, solo_line)
-                        
+
         # Write startup script file
         with open('./cfg/build/nos3_defs/cpu1_cfe_es_startup.scr', 'w') as fp:
             lines = "".join(lines)
@@ -452,7 +437,6 @@ else:
         ###
         ### Simulators - nos3-simulator.xml
         ###
-        cam_index = 999
         css_index = 999
         eps_index = 999
         fss_index = 999
@@ -464,20 +448,16 @@ else:
         rw1_index = 999
         rw2_index = 999
         sample_index = 999
+        arch_index = 999
         st_index = 999
         torquer_index = 999
         thruster_index = 999
-        scripter_index = 999
-        solo_index = 999
 
         with open('./cfg/build/sims/nos3-simulator.xml', 'r') as fp:
             lines = fp.readlines()
             for line in lines:
                 if line.find('<absolute-start-time>') != -1:
                     lines[lines.index(line)] = "        <absolute-start-time>{}</absolute-start-time>\n".format(mission_start_time)
-                if line.find('camsim</name>') != -1:
-                    if (lines.index(line)) < cam_index:
-                        cam_index = lines.index(line) + 1
                 if line.find('css-sim</name>') != -1:
                     if (lines.index(line)) < css_index:
                         css_index = lines.index(line) + 1
@@ -511,6 +491,9 @@ else:
                 if line.find('sample-sim</name>') != -1:
                     if (lines.index(line)) < sample_index:
                         sample_index = lines.index(line) + 1
+                if line.find('arch-sim</name>') != -1:
+                    if (lines.index(line)) < arch_index:
+                        arch_index = lines.index(line) + 1
                 if line.find('star-tracker-sim</name>') != -1:
                     if (lines.index(line)) < st_index:
                         st_index = lines.index(line) + 1
@@ -520,16 +503,8 @@ else:
                 if line.find('generic-thruster-sim</name>') != -1:
                     if (lines.index(line)) < thruster_index:
                         thruster_index = lines.index(line) + 1
-                if line.find('scripter-sim</name>') != -1:
-                    if (lines.index(line)) < scripter_index:
-                        scripter_index = lines.index(line) + 1
-                if line.find('solo-sim</name>') != -1:
-                    if (lines.index(line)) < solo_index:
-                        solo_index = lines.index(line) + 1
 
         sim_disabled = '            <active>false</active>\n'
-        if (sc_cam_en != 'true'):
-            lines[cam_index] = sim_disabled
         if (sc_css_en != 'true'):
             lines[css_index] = sim_disabled
         if (sc_eps_en != 'true'):
@@ -550,16 +525,14 @@ else:
             lines[rw2_index] = sim_disabled
         if (sc_sample_en != 'true'):
             lines[sample_index] = sim_disabled
+        if (sc_arch_en != 'true'):
+            lines[arch_index] = sim_disabled
         if (sc_st_en != 'true'):
             lines[st_index] = sim_disabled
         if (sc_torquer_en != 'true'):
             lines[torquer_index] = sim_disabled
         if (sc_thruster_en != 'true'):
             lines[thruster_index] = sim_disabled
-        if (sc_scripter_en != 'true'):
-            lines[scripter_index] = sim_disabled
-        if (sc_scripter_en != 'true'):
-            lines[scripter_index] = sim_disabled
             
         with open('./cfg/build/sims/nos3-simulator.xml', 'w') as fp:
             lines = "".join(lines)

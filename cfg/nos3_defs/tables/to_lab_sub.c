@@ -61,11 +61,8 @@
 #include "generic_torquer_msgids.h"
 #include "generic_thruster_msgids.h"
 #include "novatel_oem615_msgids.h"
-#include "scripter_msgids.h"
-#include "solo_msgids.h"
-#include "server_msgids.h"
-#include "client_msgids.h"
 #include "sample_msgids.h"
+#include "arch_msgids.h"
 #include "generic_adcs_msgids.h"
 #include "generic_star_tracker_msgids.h"
 #include "mgr_msgids.h"
@@ -130,6 +127,8 @@ TO_LAB_Subs_t TO_LAB_Subs =
         {CFE_SB_MSGID_WRAP_VALUE(NOVATEL_OEM615_DEVICE_TLM_MID),{0,0},  32},
         {CFE_SB_MSGID_WRAP_VALUE(SAMPLE_HK_TLM_MID),            {0,0},  32},
         {CFE_SB_MSGID_WRAP_VALUE(SAMPLE_DEVICE_TLM_MID),        {0,0},  32},
+        {CFE_SB_MSGID_WRAP_VALUE(ARCH_HK_TLM_MID),            {0,0},  32},
+        {CFE_SB_MSGID_WRAP_VALUE(ARCH_DEVICE_TLM_MID),        {0,0},  32},
         {CFE_SB_MSGID_WRAP_VALUE(GENERIC_ADCS_HK_TLM_MID),      {0,0},  32},
         {CFE_SB_MSGID_WRAP_VALUE(GENERIC_ADCS_DI_MID),          {0,0},  32},
         {CFE_SB_MSGID_WRAP_VALUE(GENERIC_ADCS_AD_MID),          {0,0},  32},
@@ -139,14 +138,6 @@ TO_LAB_Subs_t TO_LAB_Subs =
         {CFE_SB_MSGID_WRAP_VALUE(GENERIC_STAR_TRACKER_HK_TLM_MID),{0,0},  32},
         {CFE_SB_MSGID_WRAP_VALUE(GENERIC_STAR_TRACKER_DEVICE_TLM_MID),{0,0},  32},
         {CFE_SB_MSGID_WRAP_VALUE(GENERIC_THRUSTER_HK_TLM_MID),  {0,0},  32},
-        {CFE_SB_MSGID_WRAP_VALUE(SCRIPTER_HK_TLM_MID),            {0,0},  32},
-        {CFE_SB_MSGID_WRAP_VALUE(SCRIPTER_DEVICE_TLM_MID),        {0,0},  32},
-        {CFE_SB_MSGID_WRAP_VALUE(SOLO_HK_TLM_MID),            {0,0},  32},
-        {CFE_SB_MSGID_WRAP_VALUE(SOLO_DEVICE_TLM_MID),        {0,0},  32},
-        {CFE_SB_MSGID_WRAP_VALUE(SERVER_HK_TLM_MID),            {0,0},  32},
-        {CFE_SB_MSGID_WRAP_VALUE(SERVER_DEVICE_TLM_MID),        {0,0},  32},
-        {CFE_SB_MSGID_WRAP_VALUE(CLIENT_HK_TLM_MID),            {0,0},  32},
-        {CFE_SB_MSGID_WRAP_VALUE(CLIENT_DEVICE_TLM_MID),        {0,0},  32},
         {CFE_SB_MSGID_WRAP_VALUE(MGR_HK_TLM_MID),               {0,0},  32},
         {CFE_SB_MSGID_WRAP_VALUE(SYN_HK_TLM_MID),               {0,0},  32},
         {CFE_SB_MSGID_WRAP_VALUE(SCH_HK_TLM_MID),               {0,0},  32},

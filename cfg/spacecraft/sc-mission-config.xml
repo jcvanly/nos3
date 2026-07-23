@@ -24,9 +24,6 @@
 		<adcs>
 			<enable>true</enable>
 		</adcs>
-		<cam>
-			<enable>false</enable>
-		</cam>
 		<css>
 			<enable>true</enable>
 		</css>
@@ -72,18 +69,9 @@
 		<thruster>
 			<enable>true</enable>
 		</thruster>
-		<scripter>
+		<arch>
 			<enable>true</enable>
-		</scripter>
-		<solo>
-			<enable>true</enable>
-		</solo>
-		<client>
-			<enable>false</enable>
-		</client>
-		<server>
-			<enable>false</enable>
-		</server>
+		</arch>
 	</components>
 	<gui>
 		<enable>true</enable>
