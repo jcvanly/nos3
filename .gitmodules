@@ -183,3 +183,7 @@
 	path = components/camera
 	url = git@github.com:jcvanly/camera.git
 	branch = main
+[submodule "components/arch"]
+	path = components/arch
+	url = git@github.com:jcvanly/arch.git
+	branch = main
